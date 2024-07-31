@@ -1,0 +1,8 @@
+<button pButton (click)="showModal = true">Reply</button>
+
+<app-modal [(visible)]="showModal" [modalTitle]="modalTitle" [label]="label">
+  <app-email-form
+    [email]="email"
+    (emailSubmit)="onSubmit($event)"
+  ></app-email-form>
+</app-modal>

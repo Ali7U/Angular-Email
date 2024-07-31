@@ -1,0 +1,34 @@
+<div
+  class="border-3 border-400 font-bold m-2 px-1 border-round h-21rem overflow-scroll"
+>
+  @if(emails.length){
+  <!--  -->
+  @for(email of emails; track $index){
+  <div class="border-bottom-2 border-200 cursor-pointer item no-underline">
+    <a class="no-underline" [routerLink]="email?.id" routerLinkActive="active">
+      <h4 class="font-bold m-2">{{ email?.subject }}</h4>
+      <div></div>
+      <p
+        class="text-sm white-space-nowrap overflow-hidden text-overflow-ellipsis m-2"
+        [pTooltip]="email?.from"
+        tooltipPosition="bottom"
+      >
+        {{ email?.from }}
+      </p>
+    </a>
+  </div>
+  }<!--  end for loop  -->
+  } @else{
+  <!--  -->
+  @if(isLaoding){
+  <div class="flex flex-column h-8rem justify-content-around">
+    <p-skeleton styleClass="mr-2" />
+    <p-skeleton styleClass="mr-2" />
+    <p-skeleton styleClass="mr-2" />
+  </div>
+
+  } @else{
+
+  <p>The email is empty...</p>
+  } }
+</div>

@@ -1,0 +1,14 @@
+<div class="w-12">
+  <div class="flex md:flex-wrap justify-content-between">
+    <div class="w-9">
+      {{ email?.subject }}
+      <div class="w-12 overflow-scroll">From: {{ email?.from }}</div>
+      <div>To: {{ email?.to }}</div>
+    </div>
+    <div class="align-self-center">
+      <app-email-reply [email]="email"></app-email-reply>
+    </div>
+  </div>
+  <hr />
+  <div class="h-15rem overflow-scroll" [innerHTML]="email?.html"></div>
+</div>

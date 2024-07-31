@@ -1,0 +1,43 @@
+<div class="col flex flex-column">
+  <label>{{ label }}</label>
+  @if (controlType === 'input') {
+
+  <input [type]="inputType" pInputText [formControl]="controlName" />
+  } @if(controlType === 'textarea') {
+  <textarea
+    rows="5"
+    cols="30"
+    pInputTextarea
+    [formControl]="controlName"
+  ></textarea>
+  } @if (showErrors()) {
+  <div class="h-2rem text-red-400">
+    @if (controlName.errors?.['required']) {
+    <p class="text-xs">Value is Required</p>
+    } @if(controlName.errors?.['email']){
+    <p class="text-xs">Enter a valid email</p>
+
+    } @if (controlName.errors?.['minlength']) {
+    <p class="text-xs">
+      Value is must be greater than
+      {{controlName.errors?.['minlength'].requiredLength}} characters, you
+      entered
+      {{controlName.errors?.['minlength'].actualLength}}
+    </p>
+    } @if (controlName.errors?.['maxlength']) {
+    <p class="text-xs">
+      Value is must be greater than
+      {{controlName.errors?.['maxlength'].requiredLength}} characters, you
+      entered
+      {{controlName.errors?.['maxlength'].actualLength}}
+    </p>
+    } @if(controlName.errors?.['pattern']){
+    <p class="text-xs">Invalid format</p>
+    } @if (controlName.errors?.['nonUniqueUsername']) {
+    <p class="text-xs">Username is taken</p>
+    } @if (controlName.errors?.['noConnection']) {
+    <p class="text-xs">No connection</p>
+    }
+  </div>
+  }
+</div>

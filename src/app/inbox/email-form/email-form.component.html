@@ -1,0 +1,24 @@
+<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+  <app-input
+    inputType="email"
+    label="To"
+    [controlName]="emailForm.controls?.['to']"
+  ></app-input>
+  <app-input
+    inputType="email"
+    label="From"
+    [controlName]="emailForm.controls?.['from']"
+  ></app-input>
+  <app-input
+    inputType="text"
+    label="Subject"
+    [controlName]="emailForm.controls?.['subject']"
+  ></app-input>
+  <app-input
+    controlType="textarea"
+    label="Content"
+    [controlName]="emailForm.controls?.['text']"
+  ></app-input>
+
+  <button pButton type="submit" label="Send"></button>
+</form>

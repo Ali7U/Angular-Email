@@ -1,0 +1,40 @@
+<h3 class="text-blue-200">Create an account</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="authForm">
+  <div class="flex flex-column">
+    <app-input
+      inputType="text"
+      label="Username"
+      [controlName]="authForm.controls.username"
+    ></app-input>
+    <app-input
+      inputType="password"
+      label="Password"
+      [controlName]="authForm.controls.password"
+    ></app-input>
+    <app-input
+      inputType="password"
+      label="Password Confirmation"
+      [controlName]="authForm.controls.passwordConfirmation"
+    ></app-input>
+
+    @if ( authForm.get('password')?.touched &&
+    authForm.get('passwordConfirmation')?.touched ) {
+
+    <div>
+      @if (authForm.errors?.['passwordDontMatch']) {
+      <p class="text-xs text-red-400">
+        Password and Password Confirmation must match
+      </p>
+      } @else if (authForm.errors?.['noConnection']) {
+      <p class="text-xs text-red-400">
+        No internet connection detected, field to sign up
+      </p>
+      } @else if (authForm.errors?.['unkownError']) {
+      <p class="text-xs text-red-400">Failed to sign up</p>
+      }
+    </div>
+    }
+
+    <p-button type="submit" label="Submit" />
+  </div>
+</form>

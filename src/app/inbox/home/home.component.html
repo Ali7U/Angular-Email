@@ -1,0 +1,15 @@
+<div
+  class="flex w-12 h-screen align-items-center justify-content-center flex-column md:flex-row"
+>
+  <div class="col-9 md:col-3">
+    <app-email-create></app-email-create>
+    <app-email-index></app-email-index>
+  </div>
+  <div class="flex md:col-7">
+    <div
+      class="align-items-center w-12 border-1 border-round col-10 flex font-bold h-25rem justify-content-center m-2 md:col-7 overflow-scroll px-5 py-3 surface-100"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

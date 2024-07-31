@@ -1,0 +1,18 @@
+<div (click)="onDismissClick()">
+  <div>
+    <p-dialog
+      [header]="modalTitle"
+      [modal]="true"
+      [(visible)]="visible"
+      [style]="{ width: '50rem' }"
+    >
+      <div class="content" (click)="$event.stopPropagation()">
+        <ng-content></ng-content>
+      </div>
+
+      <div class="actions">
+        <ng-content select="[modalFooter]"></ng-content>
+      </div>
+    </p-dialog>
+  </div>
+</div>

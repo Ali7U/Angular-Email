@@ -1,0 +1,13 @@
+<button
+  (click)="showModal = true"
+  pButton
+  class="w-12 h-4rem"
+  label="Compose"
+></button>
+
+<app-modal [(visible)]="showModal" [modalTitle]="modalTitle" [label]="label">
+  <app-email-form
+    (emailSubmit)="onSubmit($event)"
+    [email]="email"
+  ></app-email-form>
+</app-modal>
