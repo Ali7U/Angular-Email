@@ -4,7 +4,7 @@
   >
     <a class="no-underline text-black-alpha-90" routerLink="/">Angular Email</a>
 
-    <div class="flex justify-content-around w-5 align-items-center">
+    <div class="flex justify-content-around sm:w-5 align-items-center">
       <ng-container *ngIf="signedin$ | async">
         <a
           routerLink="inbox"
@@ -15,6 +15,7 @@
         <p-splitButton
           label="Secondary"
           [model]="items"
+          class="w-9"
           [label]="username + '@angular-email.com'"
           raised
           text
